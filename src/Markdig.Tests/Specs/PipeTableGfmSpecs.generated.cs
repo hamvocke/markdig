@@ -1,4 +1,4 @@
-// Generated: 2020-07-30 15:47:38
+// Generated: 2020-07-31 07:01:37
 
 // --------------------------------
 //          GFM Pipe Tables
@@ -852,6 +852,29 @@ namespace Markdig.Tests.Specs.GFMPipeTables
 
             Console.WriteLine("Example 25\nSection Extensions / Gfm Pipe Table\n");
             TestParser.TestSpec("a | b\n-- | - \n0 | 1 | 2\n3 |", "<table>\n<thead>\n<tr>\n<th>a</th>\n<th>b</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>0</td>\n<td>1</td>\n</tr>\n<tr>\n<td>3</td>\n<td></td>\n</tr>\n</tbody>\n</table>", "gfm-pipetables");
+        }
+
+        // **Delimiter row column count**
+        // 
+        // The header row must match the delimiter row in the number of cells. If not, a table will not be recognized:
+        [Test]
+        public void ExtensionsGfmPipeTable_Example026()
+        {
+            // Example 26
+            // Section: Extensions / Gfm Pipe Table
+            //
+            // The following Markdown:
+            //     | a | b |
+            //     | --- |
+            //     | c |
+            //
+            // Should be rendered as:
+            //     <p>| a | b |
+            //     | --- |
+            //     | c |</p>
+
+            Console.WriteLine("Example 26\nSection Extensions / Gfm Pipe Table\n");
+            TestParser.TestSpec("| a | b |\n| --- |\n| c |", "<p>| a | b |\n| --- |\n| c |</p>", "gfm-pipetables");
         }
     }
 }

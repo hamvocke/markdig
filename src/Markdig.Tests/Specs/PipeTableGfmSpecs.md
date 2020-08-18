@@ -615,3 +615,18 @@ a | b
 </tbody>
 </table>
 ````````````````````````````````
+
+**Delimiter row column count**
+
+The header row must match the delimiter row in the number of cells. If not, a table will not be recognized:
+
+
+```````````````````````````````` example
+| a | b |
+| --- |
+| c |
+.
+<p>| a | b |
+| --- |
+| c |</p>
+````````````````````````````````
